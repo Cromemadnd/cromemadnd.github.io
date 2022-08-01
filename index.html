@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="icon" href="favicon.ico">
+
+<body>
+    <div class="header" style="margin-top: 2%;">
+        <h1>Cromemadnd Lancity</h1>
+        兴趣使然 乐在其中
+    </div>
+
+    <div style="margin-top: 1%;" class="menu">
+        <table>
+            <tr>
+                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
+                    动态</td>
+                <td onclick="jumpto('404.html')">
+                    相册</td>
+                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
+                    聊天室</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 1%;" class="content" id="content">
+        <script>
+            (function () {
+                var req = new XMLHttpRequest()
+                req.onreadystatechange = function () {
+                    if (req.status == 200 && req.responseText != "") {
+                        document.getElementById("content").innerHTML = req.responseText
+                        req.abort()
+                    }
+                }
+
+                var url = "http://api.kmder.cc:810/web/get_page_content/"
+                var s = window.location.search.split("?")
+                if (s.length > 1) {
+                    url += s[1]
+                }
+                else {
+                    url += "index"
+                }
+
+                req.open("GET", url)
+                req.send(null)
+            })()
+        </script>
+    </div>
+</body>
+
+<script>
+    function jumpto(url) {
+        window.location.href = url
+    }
+</script>
+
+</html>
