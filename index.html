@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="https://api.kmder.cc:810/web/stylesheets/default.css">
-<link rel="shortcut icon" href="https://s1.ax1x.com/2022/08/01/vA9EuR.png" type="image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="https://api.kmder.cc:810/web/src/default.css">
+<link rel="shortcut icon" href="https://s1.ax1x.com/2022/08/01/vA9EuR.png" type="image/x-icon">
 
 <body>
-    <div class="header">
-        <h1>Cromemadnd Lancity</h1>
-        兴趣使然 乐在其中
-    </div>
-
-    <div style="margin-top: 1%;" class="menu">
-        <table>
-            <tr>
-                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
-                    动态</td>
-                <td onclick="jumpto('404.html')">
-                    相册</td>
-                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
-                    聊天室</td>
-            </tr>
-        </table>
-    </div>
-
     <div style="margin-top: 1%;" class="content" id="content">
         <script>
             (function () {
@@ -34,14 +16,20 @@
                     }
                 }
 
-                var url = "https://api.kmder.cc:810/web/get_page_content/"
-                var s = window.location.search.split("?")
+                var url = "https://api.kmder.cc:810/web/src/"
+                if (window.location.pathname == "") {
+                    url += "index.html"
+                }
+                else {
+                    url += window.location.pathname
+                }
+                /*var s = window.location.search.split("?")
                 if (s.length > 1) {
                     url += s[1]
                 }
                 else {
                     url += "index"
-                }
+                }*/
 
                 req.open("GET", url)
                 req.send(null)
