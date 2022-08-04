@@ -5,25 +5,7 @@
 <link rel="shortcut icon" href="https://s1.ax1x.com/2022/08/01/vA9EuR.png" type="image/x-icon">
 
 <body>
-    <div class="header">
-        <h1>Cromemadnd Lancity</h1>
-        兴趣使然 乐在其中
-    </div>
-
-    <div style="margin-top: 1%;" class="menu">
-        <table>
-            <tr>
-                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
-                    动态</td>
-                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
-                    相册</td>
-                <td onclick="jumpto('https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4')">
-                    留言板</td>
-            </tr>
-        </table>
-    </div>
-
-    <div style="margin-top: 1%;" class="content" id="content">内容加载中……</div>
+    内容加载中……
 </body>
 
 <script>
@@ -31,7 +13,8 @@
         var req = new XMLHttpRequest()
         req.onreadystatechange = function () {
             if (req.status == 200 && req.responseText != "") {
-                document.getElementById("content").innerHTML = req.responseText
+                /*document.getElementById("content").innerHTML = req.responseText*/
+                document.body.write(req.responseText)
                 req.abort()
             }
         }
