@@ -6,28 +6,24 @@
 
 <body>
     内容加载中……
+    <script>
+        function load_content() {
+            var req = new XMLHttpRequest()
+            req.onreadystatechange = function () {
+                if (req.status == 200 && req.responseText != "") {
+                    document.body.write(req.responseText)
+                    req.abort()
+                }
+            }
+
+            var url = "https://api.kmder.cc:810/web/src/index.html"
+            req.open("GET", url)
+            req.send(null)
+        }
+        load_content()
+    </script>
 </body>
 
-<script>
-    function load_content() {
-        var req = new XMLHttpRequest()
-        req.onreadystatechange = function () {
-            if (req.status == 200 && req.responseText != "") {
-                /*document.getElementById("content").innerHTML = req.responseText*/
-                document.body.write(req.responseText)
-                req.abort()
-            }
-        }
 
-        var url = "https://api.kmder.cc:810/web/src/index.html"
-        req.open("GET", url)
-        req.send(null)
-    }
-    load_content()
-
-    function jumpto(url) {
-        window.location.href = url
-    }
-</script>
 
 </html>
