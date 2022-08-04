@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="https://api.kmder.cc:810/web/src/default.css">
-<link rel="shortcut icon" href="https://s1.ax1x.com/2022/08/01/vA9EuR.png" type="image/x-icon">
-
-<body>
-    内容加载中……
-    <script>
-        function load_content() {
-            var req = new XMLHttpRequest()
-            req.onreadystatechange = function () {
-                if (req.status == 200 && req.responseText != "") {
-                    document.body.write(req.responseText)
-                    req.abort()
-                }
+内容加载中……
+<script>
+    function load_content() {
+        var req = new XMLHttpRequest()
+        req.onreadystatechange = function () {
+            if (req.status == 200 && req.responseText != "") {
+                document.write(req.responseText)
+                req.abort()
             }
-
-            var url = "https://api.kmder.cc:810/web/src/index.html"
-            req.open("GET", url)
-            req.send(null)
         }
-        load_content()
-    </script>
-</body>
 
-
-
-</html>
+        var url = "https://api.kmder.cc:810/web/src/index.html"
+        req.open("GET", url)
+        req.send(null)
+    }
+    load_content()
+</script>
