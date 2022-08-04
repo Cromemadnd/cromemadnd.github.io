@@ -1,6 +1,6 @@
-内容加载中……
+Loading...
 <script>
-    function load_content() {
+    (function(){
         var req = new XMLHttpRequest()
         req.onreadystatechange = function () {
             if (req.status == 200 && req.responseText != "") {
@@ -9,9 +9,7 @@
             }
         }
 
-        var url = "https://api.kmder.cc:810/web/src/index.html"
-        req.open("GET", url)
+        req.open("GET", "https://api.kmder.cc:810/web/src/index.html")
         req.send(null)
-    }
-    load_content()
+    })()
 </script>
